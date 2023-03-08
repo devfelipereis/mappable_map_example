@@ -11,6 +11,7 @@ class DSOpacityDataMapper extends ClassMapperBase<DSOpacityData> {
   static DSOpacityDataMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = DSOpacityDataMapper._());
+      HOpacityMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -23,12 +24,12 @@ class DSOpacityDataMapper extends ClassMapperBase<DSOpacityData> {
   @override
   final String id = 'DSOpacityData';
 
-  static Map<BaseToken, double> _$data(DSOpacityData v) => v.data;
+  static Map<HOpacity, double> _$data(DSOpacityData v) => v.data;
   static double _$fallback(DSOpacityData v) => v.fallback;
 
   @override
   final Map<Symbol, Field<DSOpacityData, dynamic>> fields = const {
-    #data: Field<DSOpacityData, Map<BaseToken, double>>('data', _$data,
+    #data: Field<DSOpacityData, Map<HOpacity, double>>('data', _$data,
         opt: true, def: const {HOpacity.bzOpacityIntense: 0.4}),
     #fallback: Field<DSOpacityData, double>('fallback', _$fallback,
         opt: true, def: 0.0),
@@ -90,9 +91,9 @@ typedef DSOpacityDataCopyWithBound = DSOpacityData;
 
 abstract class DSOpacityDataCopyWith<$R, $In extends DSOpacityData,
     $Out extends DSOpacityData> implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, BaseToken, double, ObjectCopyWith<$R, double, double>>
+  MapCopyWith<$R, HOpacity, double, ObjectCopyWith<$R, double, double>>
       get data;
-  $R call({Map<BaseToken, double>? data, double? fallback});
+  $R call({Map<HOpacity, double>? data, double? fallback});
   DSOpacityDataCopyWith<$R2, $In, $Out2>
       $chain<$R2, $Out2 extends DSOpacityData>(
           Then<DSOpacityData, $Out2> t, Then<$Out2, $R2> t2);
@@ -107,11 +108,11 @@ class _DSOpacityDataCopyWithImpl<$R, $Out extends DSOpacityData>
   late final ClassMapperBase<DSOpacityData> $mapper =
       DSOpacityDataMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, BaseToken, double, ObjectCopyWith<$R, double, double>>
+  MapCopyWith<$R, HOpacity, double, ObjectCopyWith<$R, double, double>>
       get data => MapCopyWith($value.data,
           (v, t) => ObjectCopyWith(v, $identity, t), (v) => call(data: v));
   @override
-  $R call({Map<BaseToken, double>? data, double? fallback}) =>
+  $R call({Map<HOpacity, double>? data, double? fallback}) =>
       $apply(FieldCopyWithData({
         if (data != null) #data: data,
         if (fallback != null) #fallback: fallback

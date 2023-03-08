@@ -1,7 +1,7 @@
 import 'package:mappable_map_example/base_token.dart';
 
-class BaseTokenParser<T> {
-  final Map<BaseToken, T> data;
+class BaseTokenParser<E extends BaseToken, T> {
+  final Map<E, T> data;
   final T fallback;
 
   const BaseTokenParser({
